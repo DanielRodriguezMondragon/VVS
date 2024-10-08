@@ -3,5 +3,5 @@ CAP = sum(max[N]) - N
 
 siendo sum() una función que suma todos los valores del array max y N el número de clientes/procesos.
 
-Esto se debe a que, para que se produdza el deadlock, debe ocurrir que el banco no tenga dinero (cash == 0) y que, simultáneamente, todos los procesos puedan pedir al menos 1 moneda. Es decir, al producirse un deadlock con el CAP máximo (resultado de la fórmula anterior) siempre se cumplirá que todos los procesos tienen emprestados (valor de loan[_pid]) las máximas monedas posibles menos 1 (loan[_pid] == max[_pid]-1).
+Esto se debe a que, para que se produdza el deadlock, debe ocurrir que el banco no tenga dinero (cash == 0) y que, simultáneamente, todos los procesos puedan pedir (y pidan) al menos 1 moneda. Es decir, al producirse un deadlock con el CAP máximo (resultado de la fórmula anterior) siempre se cumplirá que todos los procesos tienen emprestados (valor de loan[_pid]) las máximas monedas posibles menos 1 (loan[_pid] == max[_pid]-1) y que los 3 estén esperando un préstamo.
 
