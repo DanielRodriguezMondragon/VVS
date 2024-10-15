@@ -13,11 +13,11 @@
 #define cond_cli2 (loan[2] >= 0 && loan[2] <= max[2])
 
 
+short cash = CAP;// Money in the bank (initially,the capital CAP)
 short max[N] = {2,4,3};// Maximum money needed by each client
 short loan[N] = 0;// Current amount lent to each client
-short cash = CAP;// Money in the bank (initially,the capital CAP)
 
-active[N] proctype Cliente() {
+active[N] proctype C() {
 	short request;
 	short max_req;
 	
@@ -32,7 +32,7 @@ active[N] proctype Cliente() {
 			cash >= request;// espera a que haya dinero en el banco
 			cash = cash - request;
 			loan[_pid] = loan[_pid] + request;
-			printf("C%d got money %d.   %d:[%d,%d,%d]\n",_pid,request,cash,loan[0],loan[1],loan[2]);
+			got: printf("C%d got money %d.   %d:[%d,%d,%d]\n",_pid,request,cash,loan[0],loan[1],loan[2]);
 		}
 // the client has any loan greater than 0, she can return it at any moment.
 	:: loan[_pid] > 0 -> 
